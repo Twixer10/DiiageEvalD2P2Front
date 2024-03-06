@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Event } from 'src/model/event';
+import { Evnt } from 'src/model/event';
 import { environment } from 'src/environments/environment.development';
 import { Observable, map } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Observable, map } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  createEvent(event: Event) {
+  createEvent(event: Evnt) {
     var body = {
       Title: event.Title,
       Description: event.Description,
@@ -21,14 +21,17 @@ export class ApiService {
     return this.http.post(`${environment.apiUrl}/events`, body);
   }
 
-  getEvents(limit: number, page: number): Observable<Event[]> {
+  getEvents(limit: number = 10, page: number = 1): Observable<any> {
     return this.http
       .get(`${environment.apiUrl}/events?limit=${limit}&page=${page}`)
       .pipe(
         map((data: any) => {
-          return data.map((event: Event) => {
+          var events = data.events.map((event: Evnt) => {
             return event;
           });
+          var totalEvent = data.totalData;
+
+          return { events, totalEvent };
         })
       );
   }
@@ -37,7 +40,7 @@ export class ApiService {
     return this.http.delete(`${environment.apiUrl}/events/${id}`);
   }
 
-  updateEvent(event: Event) {
+  updateEvent(event: Evnt) {
     var body = {
       Title: event.Title,
       Description: event.Description,
