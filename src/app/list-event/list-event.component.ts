@@ -50,4 +50,13 @@ export class ListEventComponent {
       });
     }
   }
+
+  deleteEvent(id: number) {
+    const confirmed = window.confirm('Are you sure you want to delete this event?');
+    if (confirmed) {
+      this.apiService.deleteEvent(id).subscribe((data) => {
+        this.getEvents();
+      });
+    }
+  }
 }

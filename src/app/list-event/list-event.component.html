@@ -102,8 +102,12 @@
                 <td
                   class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
                 >
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                    >Edit<span class="sr-only">, {{ event.Title }}</span></a
+                <a class="text-indigo-600 hover:text-indigo-900"
+                >Edit<span class="sr-only">, {{ event.Title }}</span></a
+              >
+<br>
+              <a (click)="deleteEvent(event.Id)" class="text-indigo-600 hover:text-indigo-900"
+                    >Delete<span class="sr-only">, {{ event.Title }}</span></a
                   >
                 </td>
               </tr>
