@@ -51,7 +51,7 @@ export class ApiService {
     return this.http.put(`${environment.apiUrl}/events/${event.Id}`, body);
   }
 
-  getEvent(id: number): Observable<Event> {
+  getEvent(id: number): Observable<Evnt> {
     return this.http.get(`${environment.apiUrl}/events/${id}`).pipe(
       map((data: any) => {
         return data;

@@ -1,0 +1,104 @@
+<section class="min-h-screen flex justify-center sm:px-6 lg:px-8">
+    <div class="container mt-6">
+      <div class="flex items-center">
+        <button
+          [routerLink]="['/']"
+          type="button"
+          class="inline-flex items-center justify-center sm:w-auto"
+        >
+        </button>
+        <h1 class="font-bold dark:text-white text-2xl mb-4 ml-6">
+          Edit an Event: {{currentEvent.Title}}
+        </h1>
+      </div>
+      <div class="bg-white dark:bg-darkPrimary p-8 rounded-md shadow-md">
+        <form class="w-full" [formGroup]="eventForm" (submit)="editEvent()">
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6" [formGroup]="eventForm">
+              <div class="sm:col-span-full">
+                <label
+                  for="Title"
+                  class="block text-sm font-bold leading-6 text-gray-900 dark:text-white"
+                  >Title</label
+                >
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    name="Title"
+                    id="Title"
+                    formControlName="Title"
+                    class="block p-3 w-full rounded-lg border-0 py-1.5 text-gray-900 dark:bg-darkSecondary dark:text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+  
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6" [formGroup]="eventForm">
+              <div class="sm:col-span-full">
+                <label
+                  for="Description"
+                  class="block text-sm font-bold leading-6 text-gray-900 dark:text-white"
+                  >Description</label
+                >
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    name="Description"
+                    id="Description"
+                    formControlName="Description"
+                    class="block p-3 w-full rounded-lg border-0 py-1.5 text-gray-900 dark:bg-darkSecondary dark:text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+  
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6" [formGroup]="eventForm">
+              <div class="sm:col-span-full">
+                <label
+                  for="Date"
+                  class="block text-sm font-bold leading-6 text-gray-900 dark:text-white"
+                  >Date</label
+                >
+                <div class="mt-2">
+                  <input
+                    type="datetime-local"
+                    name="Date"
+                    id="Date"
+                    formControlName="Date"
+                    class="block p-3 w-full rounded-lg border-0 py-1.5 text-gray-900 dark:bg-darkSecondary dark:text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+  
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6" [formGroup]="eventForm">
+              <div class="sm:col-span-full">
+                <label
+                  for="Location"
+                  class="block text-sm font-bold leading-6 text-gray-900 dark:text-white"
+                  >Location</label
+                >
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    name="Location"
+                    id="Location"
+                    formControlName="Location"
+                    class="block p-3 w-full rounded-lg border-0 py-1.5 text-gray-900 dark:bg-darkSecondary dark:text-white shadow-sm ring-1 ring-inset ring-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+  
+          <div class="mt-6 flex items-center">
+            <button
+              type="submit"
+              class="rounded-lg w-24 bg-indigo-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Edit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
